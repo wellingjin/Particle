@@ -1,0 +1,639 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24F3ACCC26130D1A009D6705 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACCB26130D1A009D6705 /* AppDelegate.m */; };
+		24F3ACCF26130D1A009D6705 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACCE26130D1A009D6705 /* SceneDelegate.m */; };
+		24F3ACD226130D1A009D6705 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACD126130D1A009D6705 /* ViewController.m */; };
+		24F3ACD526130D1A009D6705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F3ACD326130D1A009D6705 /* Main.storyboard */; };
+		24F3ACD726130D1B009D6705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F3ACD626130D1B009D6705 /* Assets.xcassets */; };
+		24F3ACDA26130D1B009D6705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F3ACD826130D1B009D6705 /* LaunchScreen.storyboard */; };
+		24F3ACDD26130D1B009D6705 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACDC26130D1B009D6705 /* main.m */; };
+		24F3ACE726130D1B009D6705 /* ParticleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACE626130D1B009D6705 /* ParticleTests.m */; };
+		24F3ACF226130D1C009D6705 /* ParticleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACF126130D1C009D6705 /* ParticleUITests.m */; };
+		24F3AD11261323FE009D6705 /* ParticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3AD10261323FE009D6705 /* ParticleView.m */; };
+		24F3AD2426141E3B009D6705 /* PointParticleShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 24F3AD2226141E3B009D6705 /* PointParticleShader.vsh */; };
+		24F3AD2526141E3B009D6705 /* PointParticleShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 24F3AD2326141E3B009D6705 /* PointParticleShader.fsh */; };
+		24F3AD2B2614798E009D6705 /* VertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3AD2A2614798E009D6705 /* VertexAttribArrayBuffer.m */; };
+		24F3AD332616B869009D6705 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F3AD322616B869009D6705 /* bubble.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24F3ACE326130D1B009D6705 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F3ACBF26130D1A009D6705 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F3ACC626130D1A009D6705;
+			remoteInfo = Particle;
+		};
+		24F3ACEE26130D1C009D6705 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F3ACBF26130D1A009D6705 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F3ACC626130D1A009D6705;
+			remoteInfo = Particle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24F3ACC726130D1A009D6705 /* Particle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F3ACCA26130D1A009D6705 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		24F3ACCB26130D1A009D6705 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		24F3ACCD26130D1A009D6705 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		24F3ACCE26130D1A009D6705 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		24F3ACD026130D1A009D6705 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		24F3ACD126130D1A009D6705 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		24F3ACD426130D1A009D6705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24F3ACD626130D1B009D6705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24F3ACD926130D1B009D6705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		24F3ACDB26130D1B009D6705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F3ACDC26130D1B009D6705 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24F3ACE226130D1B009D6705 /* ParticleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParticleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F3ACE626130D1B009D6705 /* ParticleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleTests.m; sourceTree = "<group>"; };
+		24F3ACE826130D1B009D6705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F3ACED26130D1C009D6705 /* ParticleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParticleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F3ACF126130D1C009D6705 /* ParticleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleUITests.m; sourceTree = "<group>"; };
+		24F3ACF326130D1C009D6705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F3AD0F261323FE009D6705 /* ParticleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleView.h; sourceTree = "<group>"; };
+		24F3AD10261323FE009D6705 /* ParticleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleView.m; sourceTree = "<group>"; };
+		24F3AD2226141E3B009D6705 /* PointParticleShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PointParticleShader.vsh; sourceTree = "<group>"; };
+		24F3AD2326141E3B009D6705 /* PointParticleShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PointParticleShader.fsh; sourceTree = "<group>"; };
+		24F3AD292614798E009D6705 /* VertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		24F3AD2A2614798E009D6705 /* VertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VertexAttribArrayBuffer.m; sourceTree = "<group>"; };
+		24F3AD322616B869009D6705 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24F3ACC426130D1A009D6705 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F3ACDF26130D1B009D6705 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F3ACEA26130D1C009D6705 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24F3ACBE26130D1A009D6705 = {
+			isa = PBXGroup;
+			children = (
+				24F3ACC926130D1A009D6705 /* Particle */,
+				24F3ACE526130D1B009D6705 /* ParticleTests */,
+				24F3ACF026130D1C009D6705 /* ParticleUITests */,
+				24F3ACC826130D1A009D6705 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24F3ACC826130D1A009D6705 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24F3ACC726130D1A009D6705 /* Particle.app */,
+				24F3ACE226130D1B009D6705 /* ParticleTests.xctest */,
+				24F3ACED26130D1C009D6705 /* ParticleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24F3ACC926130D1A009D6705 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				24F3AD2126141E1F009D6705 /* GLSL */,
+				24F3AD0226131177009D6705 /* View */,
+				24F3ACCA26130D1A009D6705 /* AppDelegate.h */,
+				24F3ACCB26130D1A009D6705 /* AppDelegate.m */,
+				24F3ACCD26130D1A009D6705 /* SceneDelegate.h */,
+				24F3ACCE26130D1A009D6705 /* SceneDelegate.m */,
+				24F3ACD026130D1A009D6705 /* ViewController.h */,
+				24F3ACD126130D1A009D6705 /* ViewController.m */,
+				24F3ACD326130D1A009D6705 /* Main.storyboard */,
+				24F3ACD626130D1B009D6705 /* Assets.xcassets */,
+				24F3ACD826130D1B009D6705 /* LaunchScreen.storyboard */,
+				24F3ACDB26130D1B009D6705 /* Info.plist */,
+				24F3ACDC26130D1B009D6705 /* main.m */,
+			);
+			path = Particle;
+			sourceTree = "<group>";
+		};
+		24F3ACE526130D1B009D6705 /* ParticleTests */ = {
+			isa = PBXGroup;
+			children = (
+				24F3ACE626130D1B009D6705 /* ParticleTests.m */,
+				24F3ACE826130D1B009D6705 /* Info.plist */,
+			);
+			path = ParticleTests;
+			sourceTree = "<group>";
+		};
+		24F3ACF026130D1C009D6705 /* ParticleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				24F3ACF126130D1C009D6705 /* ParticleUITests.m */,
+				24F3ACF326130D1C009D6705 /* Info.plist */,
+			);
+			path = ParticleUITests;
+			sourceTree = "<group>";
+		};
+		24F3AD0226131177009D6705 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24F3AD322616B869009D6705 /* bubble.png */,
+				24F3AD292614798E009D6705 /* VertexAttribArrayBuffer.h */,
+				24F3AD2A2614798E009D6705 /* VertexAttribArrayBuffer.m */,
+				24F3AD0F261323FE009D6705 /* ParticleView.h */,
+				24F3AD10261323FE009D6705 /* ParticleView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24F3AD2126141E1F009D6705 /* GLSL */ = {
+			isa = PBXGroup;
+			children = (
+				24F3AD2326141E3B009D6705 /* PointParticleShader.fsh */,
+				24F3AD2226141E3B009D6705 /* PointParticleShader.vsh */,
+			);
+			path = GLSL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24F3ACC626130D1A009D6705 /* Particle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F3ACF626130D1C009D6705 /* Build configuration list for PBXNativeTarget "Particle" */;
+			buildPhases = (
+				24F3ACC326130D1A009D6705 /* Sources */,
+				24F3ACC426130D1A009D6705 /* Frameworks */,
+				24F3ACC526130D1A009D6705 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Particle;
+			productName = Particle;
+			productReference = 24F3ACC726130D1A009D6705 /* Particle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		24F3ACE126130D1B009D6705 /* ParticleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F3ACF926130D1C009D6705 /* Build configuration list for PBXNativeTarget "ParticleTests" */;
+			buildPhases = (
+				24F3ACDE26130D1B009D6705 /* Sources */,
+				24F3ACDF26130D1B009D6705 /* Frameworks */,
+				24F3ACE026130D1B009D6705 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24F3ACE426130D1B009D6705 /* PBXTargetDependency */,
+			);
+			name = ParticleTests;
+			productName = ParticleTests;
+			productReference = 24F3ACE226130D1B009D6705 /* ParticleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		24F3ACEC26130D1C009D6705 /* ParticleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F3ACFC26130D1C009D6705 /* Build configuration list for PBXNativeTarget "ParticleUITests" */;
+			buildPhases = (
+				24F3ACE926130D1C009D6705 /* Sources */,
+				24F3ACEA26130D1C009D6705 /* Frameworks */,
+				24F3ACEB26130D1C009D6705 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24F3ACEF26130D1C009D6705 /* PBXTargetDependency */,
+			);
+			name = ParticleUITests;
+			productName = ParticleUITests;
+			productReference = 24F3ACED26130D1C009D6705 /* ParticleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24F3ACBF26130D1A009D6705 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					24F3ACC626130D1A009D6705 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					24F3ACE126130D1B009D6705 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 24F3ACC626130D1A009D6705;
+					};
+					24F3ACEC26130D1C009D6705 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 24F3ACC626130D1A009D6705;
+					};
+				};
+			};
+			buildConfigurationList = 24F3ACC226130D1A009D6705 /* Build configuration list for PBXProject "Particle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24F3ACBE26130D1A009D6705;
+			productRefGroup = 24F3ACC826130D1A009D6705 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24F3ACC626130D1A009D6705 /* Particle */,
+				24F3ACE126130D1B009D6705 /* ParticleTests */,
+				24F3ACEC26130D1C009D6705 /* ParticleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24F3ACC526130D1A009D6705 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F3ACDA26130D1B009D6705 /* LaunchScreen.storyboard in Resources */,
+				24F3ACD726130D1B009D6705 /* Assets.xcassets in Resources */,
+				24F3ACD526130D1A009D6705 /* Main.storyboard in Resources */,
+				24F3AD2526141E3B009D6705 /* PointParticleShader.fsh in Resources */,
+				24F3AD2426141E3B009D6705 /* PointParticleShader.vsh in Resources */,
+				24F3AD332616B869009D6705 /* bubble.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F3ACE026130D1B009D6705 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F3ACEB26130D1C009D6705 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24F3ACC326130D1A009D6705 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F3ACD226130D1A009D6705 /* ViewController.m in Sources */,
+				24F3AD11261323FE009D6705 /* ParticleView.m in Sources */,
+				24F3ACCC26130D1A009D6705 /* AppDelegate.m in Sources */,
+				24F3AD2B2614798E009D6705 /* VertexAttribArrayBuffer.m in Sources */,
+				24F3ACDD26130D1B009D6705 /* main.m in Sources */,
+				24F3ACCF26130D1A009D6705 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F3ACDE26130D1B009D6705 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F3ACE726130D1B009D6705 /* ParticleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F3ACE926130D1C009D6705 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F3ACF226130D1C009D6705 /* ParticleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24F3ACE426130D1B009D6705 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F3ACC626130D1A009D6705 /* Particle */;
+			targetProxy = 24F3ACE326130D1B009D6705 /* PBXContainerItemProxy */;
+		};
+		24F3ACEF26130D1C009D6705 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F3ACC626130D1A009D6705 /* Particle */;
+			targetProxy = 24F3ACEE26130D1C009D6705 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		24F3ACD326130D1A009D6705 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24F3ACD426130D1A009D6705 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		24F3ACD826130D1B009D6705 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24F3ACD926130D1B009D6705 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24F3ACF426130D1C009D6705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		24F3ACF526130D1C009D6705 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24F3ACF726130D1C009D6705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 728HGSYL4K;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					GLES_SILENCE_DEPRECATION,
+				);
+				INFOPLIST_FILE = Particle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = welling.Particle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		24F3ACF826130D1C009D6705 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 728HGSYL4K;
+				GCC_PREPROCESSOR_DEFINITIONS = GLES_SILENCE_DEPRECATION;
+				INFOPLIST_FILE = Particle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = welling.Particle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		24F3ACFA26130D1C009D6705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 728HGSYL4K;
+				INFOPLIST_FILE = ParticleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = welling.ParticleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Particle.app/Particle";
+			};
+			name = Debug;
+		};
+		24F3ACFB26130D1C009D6705 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 728HGSYL4K;
+				INFOPLIST_FILE = ParticleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = welling.ParticleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Particle.app/Particle";
+			};
+			name = Release;
+		};
+		24F3ACFD26130D1C009D6705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 728HGSYL4K;
+				INFOPLIST_FILE = ParticleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = welling.ParticleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Particle;
+			};
+			name = Debug;
+		};
+		24F3ACFE26130D1C009D6705 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 728HGSYL4K;
+				INFOPLIST_FILE = ParticleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = welling.ParticleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Particle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24F3ACC226130D1A009D6705 /* Build configuration list for PBXProject "Particle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F3ACF426130D1C009D6705 /* Debug */,
+				24F3ACF526130D1C009D6705 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24F3ACF626130D1C009D6705 /* Build configuration list for PBXNativeTarget "Particle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F3ACF726130D1C009D6705 /* Debug */,
+				24F3ACF826130D1C009D6705 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24F3ACF926130D1C009D6705 /* Build configuration list for PBXNativeTarget "ParticleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F3ACFA26130D1C009D6705 /* Debug */,
+				24F3ACFB26130D1C009D6705 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24F3ACFC26130D1C009D6705 /* Build configuration list for PBXNativeTarget "ParticleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F3ACFD26130D1C009D6705 /* Debug */,
+				24F3ACFE26130D1C009D6705 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24F3ACBF26130D1A009D6705 /* Project object */;
+}
