@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2479AEFF2622DB8400CE7C99 /* GLKAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2479AEFE2622DB8400CE7C99 /* GLKAnimationManager.m */; };
 		24F3ACCC26130D1A009D6705 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACCB26130D1A009D6705 /* AppDelegate.m */; };
 		24F3ACCF26130D1A009D6705 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACCE26130D1A009D6705 /* SceneDelegate.m */; };
 		24F3ACD226130D1A009D6705 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACD126130D1A009D6705 /* ViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2479AEFD2622DB8400CE7C99 /* GLKAnimationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLKAnimationManager.h; sourceTree = "<group>"; };
+		2479AEFE2622DB8400CE7C99 /* GLKAnimationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLKAnimationManager.m; sourceTree = "<group>"; };
 		24F3ACC726130D1A009D6705 /* Particle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F3ACCA26130D1A009D6705 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24F3ACCB26130D1A009D6705 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				24F3AD2A2614798E009D6705 /* VertexAttribArrayBuffer.m */,
 				24F3AD0F261323FE009D6705 /* ParticleView.h */,
 				24F3AD10261323FE009D6705 /* ParticleView.m */,
+				2479AEFD2622DB8400CE7C99 /* GLKAnimationManager.h */,
+				2479AEFE2622DB8400CE7C99 /* GLKAnimationManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				24F3ACD226130D1A009D6705 /* ViewController.m in Sources */,
 				24F3AD11261323FE009D6705 /* ParticleView.m in Sources */,
 				24F3ACCC26130D1A009D6705 /* AppDelegate.m in Sources */,
+				2479AEFF2622DB8400CE7C99 /* GLKAnimationManager.m in Sources */,
 				24F3AD2B2614798E009D6705 /* VertexAttribArrayBuffer.m in Sources */,
 				24F3ACDD26130D1B009D6705 /* main.m in Sources */,
 				24F3ACCF26130D1A009D6705 /* SceneDelegate.m in Sources */,

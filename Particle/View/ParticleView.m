@@ -9,27 +9,33 @@
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import "VertexAttribArrayBuffer.h"
+static NSErrorDomain const gNSErrorDomainOpenGL = @"NSErrorDomainOpenGL";
+
+typedef NS_ENUM(NSInteger, ErrorCode) {
+    ErrorCodeContext = 101, //EAGLContext初始化失败
+    ErrorCodeCompile = 102, //编译失败
+    ErrorCodeLink = 103, //链接失败
+};
 
 //GLSL程序Uniform 参数
 enum {
-    WLMVPMatrix,//MVP矩阵
-    WLSamplers2D,//Samplers2D纹理
-    WLElapsedSeconds,//耗时
-    WLGravity,//重力
-    WLNumUniforms//Uniforms个数
+    WLMVPMatrix,    //MVP矩阵
+    WLSamplers2D,   //Samplers2D纹理
+    WLElapsedSeconds,   //耗时
+    WLGravity,      //重力
+    WLNumUniforms   //Uniforms个数
 };
 //用于定义粒子属性的类型
-typedef struct
-{
-    GLKVector3 emissionPosition;//发射位置
-    GLKVector3 emissionVelocity;//发射速度
-    GLKVector3 emissionForce;//发射重力
-    GLKVector2 size;//发射大小
-    GLKVector2 emissionTimeAndLife;//发射时间和寿命[出生时间,死亡时间]
-    GLKVector2 radius;//半径
+typedef struct {
+    GLKVector3 emissionPosition;    //发射位置
+    GLKVector3 emissionVelocity;    //发射速度
+    GLKVector3 emissionForce;   //发射重力
+    GLKVector2 size;            //发射大小
+    GLKVector2 emissionTimeAndLife; //发射时间和寿命[出生时间,死亡时间]
+    GLKVector2 radius;  //半径
 }WLParticleAttributes;
 
-@interface ParticleView ()<GLKViewDelegate> {
+@interface ParticleView () {
     
     EAGLContext *_context; //上下文
     GLuint _program;//程序
@@ -74,8 +80,9 @@ typedef enum {
 - (instancetype)initWithFrame:(CGRect)frame {
     _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (!_context) {
-        NSLog(@"上下文创建失败");
-        return nil;
+        self = [super init];
+        _error = [NSError errorWithDomain:gNSErrorDomainOpenGL code:ErrorCodeContext userInfo:@{@"errorInfo": @"EAGLContext 创建失败"}];
+        return self;
     }
     if (self = [super initWithFrame:frame context:_context]) {
         
@@ -83,34 +90,6 @@ typedef enum {
         self.drawableDepthFormat = GLKViewDrawableDepthFormat24; //使用深度缓冲区
         self.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;//颜色缓存区
         [self updateContext];
-//        self.enableSetNeedsDisplay = NO; //该值设置为N哦，这样我们就可以自己控制OpenGL的展示了
-        NSString *path = [[NSBundle bundleForClass:[self class]]
-                          pathForResource:@"bubble" ofType:@"png"];
-        NSError *error;
-        GLKTextureInfo *ballParticleTexture = [GLKTextureLoader textureWithContentsOfFile:path options:nil error:&error];
-        
-        _texture2d0 = [[GLKEffectPropertyTexture alloc] init];
-        //是否可用
-        _texture2d0.enabled = YES;
-        //命名纹理对象
-        /*
-         等价于:
-         void glGenTextures (GLsizei n, GLuint *textures);
-         //在数组textures中返回n个当期未使用的值，表示纹理对象的名称
-         //零作为一个保留的纹理对象名，它不会被此函数当做纹理对象名称而返回
-         */
-        _texture2d0.name = ballParticleTexture.name;
-        _texture2d0.target = ballParticleTexture.target;
-        
-        //纹理类型 默认值是glktexturetarget2d
-        _texture2d0.target = GLKTextureTarget2D;
-        //纹理用于计算其输出片段颜色的模式。看到GLKTextureEnvMode。
-        /*
-         GLKTextureEnvModeReplace,输出颜色设置为从纹理获取的颜色。忽略输入颜色
-         GLKTextureEnvModeModulate, 默认!输出颜色是通过将纹理的颜色乘以输入颜色来计算的
-         GLKTextureEnvModeDecal,输出颜色是通过使用纹理的alpha组件来混合纹理颜色和输入颜色来计算的。
-         */
-        _texture2d0.envMode = GLKTextureEnvModeReplace;
         
         //坐标变换的信息用于GLKit渲染效果。GLKEffectPropertyTransform类定义的属性进行渲染时的效果提供的坐标变换。
         _propertyTransform = [[GLKEffectPropertyTransform alloc] init];
@@ -142,6 +121,45 @@ typedef enum {
 }
 
 
+- (void)setImageData:(NSData *)imageData {
+    NSError *error;
+    GLKTextureInfo *particleTexture = [GLKTextureLoader textureWithContentsOfData:imageData options:nil error:&error];
+    [self loadTextureWithInfo:particleTexture];
+}
+
+- (void)setImagePath:(NSString *)imagePath {
+    NSError *error;
+    GLKTextureInfo *particleTexture = [GLKTextureLoader textureWithContentsOfFile:imagePath options:nil error:&error];
+    [self loadTextureWithInfo:particleTexture];
+}
+
+- (void)loadTextureWithInfo:(GLKTextureInfo *)textureInfo {
+    if (!_texture2d0) {
+        _texture2d0 = [[GLKEffectPropertyTexture alloc] init];
+    }
+    
+    //是否可用
+    _texture2d0.enabled = YES;
+    //命名纹理对象
+    /*
+     等价于:
+     void glGenTextures (GLsizei n, GLuint *textures);
+     //在数组textures中返回n个当期未使用的值，表示纹理对象的名称
+     //零作为一个保留的纹理对象名，它不会被此函数当做纹理对象名称而返回
+     */
+    _texture2d0.name = textureInfo.name;
+    _texture2d0.target = textureInfo.target;
+    
+    //纹理类型 默认值是glktexturetarget2d
+    _texture2d0.target = GLKTextureTarget2D;
+    //纹理用于计算其输出片段颜色的模式。看到GLKTextureEnvMode。
+    /*
+     GLKTextureEnvModeReplace,输出颜色设置为从纹理获取的颜色。忽略输入颜色
+     GLKTextureEnvModeModulate, 默认!输出颜色是通过将纹理的颜色乘以输入颜色来计算的
+     GLKTextureEnvModeDecal,输出颜色是通过使用纹理的alpha组件来混合纹理颜色和输入颜色来计算的。
+     */
+    _texture2d0.envMode = GLKTextureEnvModeReplace;
+}
 
 
 - (BOOL)createProgram {
@@ -152,11 +170,15 @@ typedef enum {
     NSString *fPath = [[NSBundle mainBundle] pathForResource:
                           @"PointParticleShader" ofType:@"fsh"]; //片元着色器代码文件
     if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vPath]) {
-        NSLog(@"Failed to compile vertex shader");
+        NSString *errorMsg = [NSString stringWithFormat:@"Failed to compile vertex shader: %@", vPath];
+        _error = [NSError errorWithDomain:gNSErrorDomainOpenGL
+                                     code:ErrorCodeCompile
+                                 userInfo:@{@"errorInfo": errorMsg}];
         return NO;
     }
     if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fPath]) {
-        NSLog(@"Failed to compile fragment shader");
+        NSString *errorMsg = [NSString stringWithFormat:@"Failed to compile fragment shader: %@", fPath];
+        _error = [NSError errorWithDomain:gNSErrorDomainOpenGL code:ErrorCodeCompile userInfo:@{@"errorInfo": errorMsg}];
         return NO;
     }
     
@@ -187,7 +209,8 @@ typedef enum {
     
     // Link program 失败
     if (![self linkProgram:_program]) {
-        NSLog(@"Failed to link program: %d", _program);
+        NSString *errorMsg = [NSString stringWithFormat:@"Failed to link program: %d", _program];
+        _error = [NSError errorWithDomain:gNSErrorDomainOpenGL code:ErrorCodeLink userInfo:@{@"errorInfo": errorMsg}];
         
         //link识别,删除vertex shader\fragment shader\program
         if (vertShader) {
@@ -296,9 +319,7 @@ typedef enum {
                  numberOfVertices:count
                  bytes:[self.particleAttributesData bytes]
                  usage:GL_DYNAMIC_DRAW];
-            }
-            else
-            {
+            }else {
                 //如果已经开辟空间,则接收新的数据
                 /*
                  1.数据大小 sizeof(WLParticleAttributes)
@@ -441,19 +462,16 @@ typedef enum {
     const long count = self.numberOfParticles;
     
     //循环设置粒子到数组中
-    for(int i = 0; i < count && !foundSlot; i++)
-    {
+    for(int i = 0; i < count && !foundSlot; i++) {
         
         //获取当前旧的例子
         WLParticleAttributes oldParticle = [self particleAtIndex:i];
         
         //如果旧的例子的死亡时间 小于 当前时间
         //emissionTimeAndLife.y = elapsedSeconds + aspan
-        if(oldParticle.emissionTimeAndLife.y < _elapsedSeconds)
-        {
+        if(oldParticle.emissionTimeAndLife.y < _elapsedSeconds) {
             //更新例子的属性
             [self setParticle:newParticle atIndex:i];
-            NSLog(@"更新粒子：%d",i);
             
             //是否替换
             foundSlot = YES;
@@ -461,15 +479,13 @@ typedef enum {
     }
     
     //如果不替换
-    if(!foundSlot)
-    {
+    if(!foundSlot) {
         //在particleAttributesData 拼接新的数据
         [self.particleAttributesData appendBytes:&newParticle
                                           length:sizeof(newParticle)];
         
         //粒子数据是否更新
         self.particleDataWasUpdated = YES;
-        NSLog(@"add 粒子");
     }
 }
 
@@ -483,7 +499,6 @@ typedef enum {
     if (last != ret) {
         //则修改last数量
         last = ret;
-        NSLog(@"count %ld", ret);
     }
     
     return ret;
@@ -502,8 +517,7 @@ typedef enum {
      3.粒子个数
      */
     [self.particleAttributeBuffer drawArrayWithMode:GL_POINTS
-                                   startVertexIndex:0 numberOfVertices:(int)self.numberOfParticles/2];
-//    glDrawArrays(GL_POINTS, 0, 5);
+                                   startVertexIndex:0 numberOfVertices:(int)self.numberOfParticles];
     //启用深度缓冲区写入
     glDepthMask(GL_TRUE);
 }
@@ -529,9 +543,7 @@ typedef enum {
     source = (GLchar *)[[NSString stringWithContentsOfFile:file
                                                   encoding:NSUTF8StringEncoding error:nil] UTF8String];
     //判断路径
-    if (!source)
-    {
-        NSLog(@"Failed to load vertex shader");
+    if (!source) {
         return NO;
     }
     
@@ -560,8 +572,7 @@ typedef enum {
     glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLength);
     
     //判断日志长度 > 0
-    if (logLength > 0)
-    {
+    if (logLength > 0) {
         //创建日志字符串
         GLchar *log = (GLchar *)malloc(logLength);
        
@@ -575,8 +586,7 @@ typedef enum {
         glGetShaderInfoLog(*shader, logLength, &logLength, log);
        
         //打印日志信息
-        NSLog(@"Shader compile log:\n%s", log);
-      
+        _compileLog = [NSString stringWithFormat:@"Shader compile log:\n%s", log];
         //释放日志字符串
         free(log);
         return NO;
@@ -598,11 +608,10 @@ typedef enum {
     if (logLength > 0) {
         GLchar *log = (GLchar *)malloc(logLength);
         glGetProgramInfoLog(prog, logLength, &logLength, log);
-        NSLog(@"Program link log:\n%s", log);
+        _compileLog = [NSString stringWithFormat:@"Program link log:\n%s", log];
         free(log);
         return NO;
     }
-    NSLog(@"link suWLessfully");
     return YES;
 }
 @end
