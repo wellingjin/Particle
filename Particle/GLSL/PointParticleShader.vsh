@@ -4,7 +4,7 @@ attribute vec3 a_emissionVelocity; //速度
 attribute vec3 a_emissionForce;    //受力
 attribute vec2 a_size;             //大小 和 Fade持续时间  size = GLKVector2Make(aSize, aDuration);
 attribute vec2 a_emissionAndDeathTimes; //发射时间 和 消失时间
-attribute vec2     a_radius; //半径
+attribute vec2     a_radius; //半径和角速度
 
 // UNIFORMS
 uniform highp mat4      u_mvpMatrix;      //变换矩阵
@@ -45,15 +45,17 @@ void main()
 //    highp vec3 untransformedPosition = a_emissionPosition +
 //    0.5 * (a_emissionVelocity + velocity) * elapsedTime;
     float remainTime = a_emissionAndDeathTimes.y - u_elapsedSeconds;
-    float r = a_radius.x;
+    float r = a_radius.x;//半径
     float newR = -(r + elapsedTime);//a_emissionPosition.y * r / a_radius.y + a_radius.y;
-    float v = 3.14/6.0;
+    float v = a_radius.y+elapsedTime; //速度
     mat3 myMat3 = mat3(newR*sin(v*elapsedTime), 0, 0,
                        0, 1, 0.0,
                        0, 0.0, newR*cos(v*elapsedTime));
     
     highp vec3 untransformedPosition = a_emissionPosition*myMat3;
-//    untransformedPosition.y =  untransformedPosition.y + elapsedTime*0.2;
+    untransformedPosition.x =  untransformedPosition.x + 0.3;
+    untransformedPosition.z =  untransformedPosition.z - 0.5;
+    untransformedPosition.y =  untransformedPosition.y + elapsedTime*0.8;
     //得出点的位置
     gl_Position = u_mvpMatrix * vec4(untransformedPosition, 1.0);
 //    gl_Position = vec4(0.5,0,0,1);

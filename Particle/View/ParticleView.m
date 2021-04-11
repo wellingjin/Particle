@@ -439,23 +439,32 @@ typedef enum {
     //更改粒子状态! 是否更新
     self.particleDataWasUpdated = YES;
 }
-//添加一个粒子
+
+/// 添加一个粒子
+/// @param aPosition 发射位置，刚开始出现的位置
+/// @param lVelocity 发射初速度
+/// @param aForce 发射力度
+/// @param aSize 粒子大小
+/// @param aDuration 粒子持续的时间
+/// @param radius 运动半径
+/// @param aVelocity 运动角速度
 - (void)addParticleAtPosition:(GLKVector3)aPosition
-                     velocity:(GLKVector3)aVelocity
+                     velocity:(GLKVector3)lVelocity
                         force:(GLKVector3)aForce
                          size:(float)aSize
-              lifeSpanSeconds:(NSTimeInterval)aSpan
-          fadeDurationSeconds:(NSTimeInterval)aDuration {
+          fadeDurationSeconds:(NSTimeInterval)aDuration
+                       radius:(CGFloat)radius
+              angularVelocity:(CGFloat)aVelocity {
     //创建新的例子
     WLParticleAttributes newParticle;
     //设置相关参数(位置\速度\抛物线\大小\耗时)
     newParticle.emissionPosition = aPosition;
-    newParticle.emissionVelocity = aVelocity;
+    newParticle.emissionVelocity = lVelocity;
     newParticle.emissionForce = aForce;
     newParticle.size = GLKVector2Make(aSize, aDuration);
     //向量(耗时,发射时长)
-    newParticle.emissionTimeAndLife = GLKVector2Make(_elapsedSeconds, _elapsedSeconds + aSpan);
-    newParticle.radius = GLKVector2Make(0.5,0.5);
+    newParticle.emissionTimeAndLife = GLKVector2Make(_elapsedSeconds, _elapsedSeconds + aDuration);
+    newParticle.radius = GLKVector2Make(radius,aVelocity);
     BOOL foundSlot = NO;
     
     //粒子个数

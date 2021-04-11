@@ -12,15 +12,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ParticleView : GLKView
 
-@property (nonatomic, assign) GLfloat elapsedSeconds;//耗时
+@property (nonatomic, assign) GLfloat elapsedSeconds;//从粒子发射到现在过去的时间
 
 
+/// 添加一个粒子
+/// @param aPosition 发射位置，刚开始出现的位置
+/// @param lVelocity 发射初速度
+/// @param aForce 发射力度
+/// @param aSize 粒子大小
+/// @param aDuration 粒子持续的时间
+/// @param radius 运动半径
+/// @param aVelocity 运动角速度
 - (void)addParticleAtPosition:(GLKVector3)aPosition
-                     velocity:(GLKVector3)aVelocity
+                     velocity:(GLKVector3)lVelocity
                         force:(GLKVector3)aForce
                          size:(float)aSize
-              lifeSpanSeconds:(NSTimeInterval)aSpan
-          fadeDurationSeconds:(NSTimeInterval)aDuration;
+          fadeDurationSeconds:(NSTimeInterval)aDuration
+                       radius:(CGFloat)radius
+              angularVelocity:(CGFloat)aVelocity;
 
 - (UIView *)view;
 

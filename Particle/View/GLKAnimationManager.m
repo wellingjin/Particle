@@ -77,33 +77,17 @@
 }
 
 - (void)createParticle {
-    
-    //重力
-//    self.particleEffect.gravity = GLKVector3Make(0.0f,0, -5);
-    
-    
-    for(int i = 0; i < _oneEmissionNum; i++)
-    {
-        //X轴速度
-        float randomXVelocity = -0.1f + 0.2f *(float)random() / (float)RAND_MAX;
-        
-        //Y轴速度
-        float randomZVelocity = 0.1f + 0.2f * (float)random() / (float)RAND_MAX;
-//        float x = 0.5f + 1 * (float)random() / (float)RAND_MAX;
-        float y = -1 + 2 * (float)random() / (float)RAND_MAX;
-        float randomR = (int)random() %2==0?0.3:0.1;
-//        CGFloat radius = randomR;
-//        _glkView.radius = radius;
+    for(int i = 0; i < _oneEmissionNum; i++) {
+        float x = 0 + (float)random() / (float)RAND_MAX;
+        float y = -1.5 + 1 * (float)random() / (float)RAND_MAX;
+        float z = -1 + 1 * (float)random() / (float)RAND_MAX;
+        CGFloat radius = sqrt(x*x + z*z);
         [_glkView
-         addParticleAtPosition:GLKVector3Make(0.3, y, -0.1)
-         velocity:GLKVector3Make(
-                                 randomXVelocity,
-                                 randomZVelocity,
-                                 randomZVelocity)
+         addParticleAtPosition:GLKVector3Make(x, y, z)
+         velocity:GLKVector3Make(0,0,0)
          force:GLKVector3Make(0.0f, 0.0f, 0.0f)
          size:120
-         lifeSpanSeconds:10
-         fadeDurationSeconds:5];
+         fadeDurationSeconds:2 radius:radius angularVelocity:3.14/3];
     }
 }
 

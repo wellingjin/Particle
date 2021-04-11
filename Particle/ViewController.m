@@ -23,6 +23,9 @@
                       pathForResource:@"bubble" ofType:@"png"];
     NSData *imageData = [NSData dataWithContentsOfFile:path];
     _animationManager.imageData = imageData;
+    _animationManager.oneEmissionNum = 20;
+    _animationManager.totalEmissionCount = 0;
+    _animationManager.emissionGap = 0.8;
     [self.view addSubview:_animationManager.view];
     [_animationManager startAnimation];
 
