@@ -20,12 +20,11 @@
     [super viewDidLoad];
     _animationManager = [[GLKAnimationManager alloc] initWithFrame:self.view.bounds];
     NSString *path = [[NSBundle bundleForClass:[self class]]
-                      pathForResource:@"bubble" ofType:@"png"];
-    NSData *imageData = [NSData dataWithContentsOfFile:path];
-    _animationManager.imageData = imageData;
-    _animationManager.oneEmissionNum = 20;
+                      pathForResource:@"ball" ofType:@"png"];
+    _animationManager.imagePath = path;
+    _animationManager.oneEmissionNum = 60;
     _animationManager.totalEmissionCount = 0;
-    _animationManager.emissionGap = 0.8;
+    _animationManager.emissionGap = 0.2;
     [self.view addSubview:_animationManager.view];
     [_animationManager startAnimation];
 

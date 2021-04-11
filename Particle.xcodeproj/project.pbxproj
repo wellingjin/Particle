@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2479AEFF2622DB8400CE7C99 /* GLKAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2479AEFE2622DB8400CE7C99 /* GLKAnimationManager.m */; };
+		2479AF0426232F5C00CE7C99 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 2479AF0326232F5C00CE7C99 /* ball.png */; };
 		24F3ACCC26130D1A009D6705 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACCB26130D1A009D6705 /* AppDelegate.m */; };
 		24F3ACCF26130D1A009D6705 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACCE26130D1A009D6705 /* SceneDelegate.m */; };
 		24F3ACD226130D1A009D6705 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F3ACD126130D1A009D6705 /* ViewController.m */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		2479AEFD2622DB8400CE7C99 /* GLKAnimationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLKAnimationManager.h; sourceTree = "<group>"; };
 		2479AEFE2622DB8400CE7C99 /* GLKAnimationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLKAnimationManager.m; sourceTree = "<group>"; };
+		2479AF0326232F5C00CE7C99 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		24F3ACC726130D1A009D6705 /* Particle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F3ACCA26130D1A009D6705 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24F3ACCB26130D1A009D6705 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				24F3AD322616B869009D6705 /* bubble.png */,
+				2479AF0326232F5C00CE7C99 /* ball.png */,
 				24F3AD292614798E009D6705 /* VertexAttribArrayBuffer.h */,
 				24F3AD2A2614798E009D6705 /* VertexAttribArrayBuffer.m */,
 				24F3AD0F261323FE009D6705 /* ParticleView.h */,
@@ -285,6 +288,7 @@
 				24F3AD2526141E3B009D6705 /* PointParticleShader.fsh in Resources */,
 				24F3AD2426141E3B009D6705 /* PointParticleShader.vsh in Resources */,
 				24F3AD332616B869009D6705 /* bubble.png in Resources */,
+				2479AF0426232F5C00CE7C99 /* ball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

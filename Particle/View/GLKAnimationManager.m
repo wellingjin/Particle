@@ -78,16 +78,16 @@
 
 - (void)createParticle {
     for(int i = 0; i < _oneEmissionNum; i++) {
-        float x = 0 + (float)random() / (float)RAND_MAX;
-        float y = -1.5 + 1 * (float)random() / (float)RAND_MAX;
-        float z = -1 + 1 * (float)random() / (float)RAND_MAX;
-        CGFloat radius = sqrt(x*x + z*z);
+        float x = 0.3;//0 + (float)random() / (float)RAND_MAX;
+        float y = -1 + 2 * (float)random() / (float)RAND_MAX;
+        float z = -0.5;//-1 + 1 * (float)random() / (float)RAND_MAX;
+        CGFloat radius = y + 1.3;
         [_glkView
          addParticleAtPosition:GLKVector3Make(x, y, z)
          velocity:GLKVector3Make(0,0,0)
          force:GLKVector3Make(0.0f, 0.0f, 0.0f)
-         size:120
-         fadeDurationSeconds:2 radius:radius angularVelocity:3.14/3];
+         size:50
+         fadeDurationSeconds:10 radius:radius angularVelocity:3.14-y+1];
     }
 }
 
